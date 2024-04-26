@@ -33,16 +33,16 @@ public class WeatherAppGUI extends JFrame {
         add(searchButton);
 
         JLabel weatherImage = new JLabel(loadImage("src/src/main/resources/images/cloudy.png"));
-        weatherImage.setBounds(95, 85, 250, 200);
+        weatherImage.setBounds(95, 75, 250, 200);
         add(weatherImage);
 
         JLabel weatherTemperature = new JLabel("10C");
-        weatherTemperature.setBounds(185, 260, 50,50);
+        weatherTemperature.setBounds(185, 240, 50,50);
         weatherTemperature.setFont(new Font("Dialog", Font.PLAIN, 28));
         add(weatherTemperature);
 
         JLabel weatherCondition = new JLabel("Cloudy");
-        weatherCondition.setBounds(175, 290, 150,50);
+        weatherCondition.setBounds(175, 270, 150,50);
         weatherCondition.setFont(new Font("Dialog", Font.PLAIN, 22));
         add(weatherCondition);
 
@@ -51,12 +51,28 @@ public class WeatherAppGUI extends JFrame {
         add(humidityImage);
 
         JLabel humidityText = new JLabel("Humidity");
-        humidityText.setBounds(70, 330, 50,50);
+        humidityText.setBounds(70, 330, 90,50);
+        humidityText.setFont(new Font("Dialog", Font.BOLD, 14));
         add(humidityText);
 
         JLabel humidityPercent = new JLabel("100%");
         humidityPercent.setBounds(70, 350, 50,50);
+        humidityPercent.setFont(new Font("Dialog", Font.BOLD, 14));
         add(humidityPercent);
+
+        JLabel windImage = new JLabel(loadImage("src/src/main/resources/images/wind.png"));
+        windImage.setBounds(290, 344, 50,50);
+        add(windImage);
+
+        JLabel windText = new JLabel("Wind");
+        windText.setBounds(340, 330, 90,50);
+        windText.setFont(new Font("Dialog", Font.BOLD, 14));
+        add(windText);
+
+        JLabel windPercent = new JLabel("100km/h");
+        windPercent.setBounds(340, 350, 90,50);
+        windPercent.setFont(new Font("Dialog", Font.BOLD, 14));
+        add(windPercent);
     }
 
     private ImageIcon loadImage(String resourcePath){
