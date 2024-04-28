@@ -38,7 +38,7 @@ public class WeatherAppGUI extends JFrame {
 
         JLabel appName2 = new JLabel("APP");
         appName2.setBounds(120,15, 355, 45);
-        appName2.setFont(new Font("Monospace", Font.ITALIC, 22));
+        appName2.setFont(new Font("Monospace", Font.BOLD | Font.ITALIC, 22));
         appName2.setForeground(new Color(29, 44, 97));
         add(appName2);
 
@@ -67,15 +67,16 @@ public class WeatherAppGUI extends JFrame {
         add(weatherImage);
 
         // temperature
-        JLabel weatherTemperature = new JLabel("10C");
+        JLabel weatherTemperature = new JLabel("10°C");
         weatherTemperature.setBounds(195, 295, 150,50);
         weatherTemperature.setFont(new Font("Monospace", Font.BOLD, 28));
         add(weatherTemperature);
 
         // weather description
         JLabel weatherConditionDesc = new JLabel("Cloudy");
-        weatherConditionDesc.setBounds(185, 320, 150,50);
+        weatherConditionDesc.setBounds(190, 325, 150,50);
         weatherConditionDesc.setFont(new Font("Monospace", Font.ITALIC, 22));
+
         appName2.setForeground(new Color(29, 44, 97));
         add(weatherConditionDesc);
 
@@ -95,7 +96,7 @@ public class WeatherAppGUI extends JFrame {
         add(humidityPercent);
 
         // wind
-        JLabel windImage = new JLabel(loadImage("src/src/main/resources/images/wind.png"));
+        JLabel windImage = new JLabel(loadImage("src/src/main/resources/images/windspeed3.png"));
         windImage.setBounds(350, 184, 50,50);
         add(windImage);
 
@@ -122,8 +123,8 @@ public class WeatherAppGUI extends JFrame {
         add(weatherImageTomorrow);
 
         // tomorrow temperature
-        JLabel weatherTemperatureTomorrow = new JLabel("10C");
-        weatherTemperatureTomorrow.setBounds(58, 455, 90,50);
+        JLabel weatherTemperatureTomorrow = new JLabel("10°C");
+        weatherTemperatureTomorrow.setBounds(55, 455, 90,50);
         weatherTemperatureTomorrow.setFont(new Font("Dialog", Font.BOLD, 18));
         add(weatherTemperatureTomorrow);
 
@@ -146,8 +147,8 @@ public class WeatherAppGUI extends JFrame {
         add(weatherImageSecondDay);
 
         // second day temperature
-        JLabel weatherTemperatureSecondDay = new JLabel("10C");
-        weatherTemperatureSecondDay.setBounds(208, 455, 90,50);
+        JLabel weatherTemperatureSecondDay = new JLabel("10°C");
+        weatherTemperatureSecondDay.setBounds(203, 455, 90,50);
         weatherTemperatureSecondDay.setFont(new Font("Dialog", Font.BOLD, 18));
         add(weatherTemperatureSecondDay);
 
@@ -159,8 +160,8 @@ public class WeatherAppGUI extends JFrame {
         add(weatherConditionDescSecondDay);
 
         // third day
-        JLabel thirdDayText = new JLabel("Next day +1");
-        thirdDayText.setBounds(335, 380, 90,50);
+        JLabel thirdDayText = new JLabel("Day after");
+        thirdDayText.setBounds(335, 380, 120,50);
         thirdDayText.setFont(new Font("Monospace", Font.BOLD, 14));
         add(thirdDayText);
 
@@ -170,23 +171,24 @@ public class WeatherAppGUI extends JFrame {
         add(weatherImageThirdDay);
 
         // third day temperature
-        JLabel weatherTemperatureThirdDay = new JLabel("10C");
-        weatherTemperatureThirdDay.setBounds(355, 455, 90,50);
-        weatherTemperatureThirdDay.setFont(new Font("Dialog", Font.BOLD, 18));
+        JLabel weatherTemperatureThirdDay = new JLabel("10°C");
+        weatherTemperatureThirdDay.setBounds(350, 455, 90,50);
+        weatherTemperatureThirdDay.setFont(new Font("Monospace", Font.BOLD, 18));
         add(weatherTemperatureThirdDay);
 
         // third day weather description
         JLabel weatherConditionDescThirdDay = new JLabel("Cloudy");
         weatherConditionDescThirdDay.setBounds(350, 475, 90,50);
-        weatherConditionDescThirdDay.setFont(new Font("Dialog", Font.ITALIC, 14));
+        weatherConditionDescThirdDay.setFont(new Font("Monospace", Font.ITALIC, 14));
         weatherConditionDescThirdDay.setForeground(new Color(29, 44, 97));
         add(weatherConditionDescThirdDay);
 
+
         // search button
 
-        JButton searchButton = new JButton(loadImage("src/src/main/resources/images/search2.png"));
+        JButton searchButton = new JButton(loadImage("src/src/main/resources/images/search.png"));
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        searchButton.setBounds(380, 85, 40, 28);
+        searchButton.setBounds(380, 85, 35, 28);
         searchButton.setBackground(new Color(147, 165, 186));
 
         searchButton.addActionListener(new ActionListener() {
@@ -301,26 +303,28 @@ public class WeatherAppGUI extends JFrame {
                 }
 
                 double weatherTemp = (double) weatherData.get("temperature");
-                weatherTemperature.setText(weatherTemp + "C");
+                weatherTemperature.setText(weatherTemp + "°C");
                 weatherConditionDesc.setText(weatherCondition);
 
                 double weatherTempTomorrow = (double) weatherData.get("temperature_tomorrow");
-                weatherTemperatureTomorrow.setText(weatherTempTomorrow + "C");
+                weatherTemperatureTomorrow.setText(weatherTempTomorrow + "°C");
                 weatherConditionDescTomorrow.setText(weatherConditionTomorrow);
 
                 double weatherTemp2ndDay = (double) weatherData.get("temperature_2nd_day");
+                weatherTemperatureSecondDay.setText(weatherTemp2ndDay + "°C");
                 weatherConditionDescSecondDay.setText(weatherConditionSecondDay);
 
                 double weatherTemp3rdDay = (double) weatherData.get("temperature_3rd_day");
+                weatherTemperatureThirdDay.setText(weatherTemp3rdDay + "°C");
                 weatherConditionDescThirdDay.setText(weatherConditionThirdDay);
 
 
 
                 long humidity = (long) weatherData.get("humidity");
-                humidityText.setText(humidity + "%</html>");
+                humidityPercent.setText(humidity + "%");
 
                 double windSpeed = (double) weatherData.get("windspeed");
-                windPercent.setText(windSpeed + "km/h</html>");
+                windPercent.setText(windSpeed + "km/h");
 
 
             }

@@ -104,6 +104,7 @@ public class WeatherAppBackEnd {
             weatherData.put("weather_condition_tomorrow", weatherConditionTomorrow);
             weatherData.put("weather_condition_second_day", weatherConditionSecondDay);
             weatherData.put("weather_condition_third_day", weatherConditionThirdDay);
+            weatherData.put("second_day_date", getTomorrowTime().toString());
 
 
             return weatherData;
