@@ -65,9 +65,11 @@ public class WeatherAppBackEnd {
             JSONArray time = (JSONArray) hourly.get("time");
             int index = findIndexOfCurrentTime(time);
 
+            int indexOfTomorrow = findIndexofTomorrow(time);
             // get temperature
             JSONArray temperatureData = (JSONArray) hourly.get("temperature_2m");
             double temperature = (double) temperatureData.get(index);
+            double temperatureTomorrow = (double) temperatureData.get(indexOfTomorrow);
 
             // get weather code
             JSONArray weathercode = (JSONArray) hourly.get("weathercode");
@@ -87,6 +89,7 @@ public class WeatherAppBackEnd {
             weatherData.put("weather_condition", weatherCondition);
             weatherData.put("humidity", humidity);
             weatherData.put("windspeed", windspeed);
+            weatherData.put("temperature_tomorrow", temperatureTomorrow);
 
             return weatherData;
         }catch(Exception e){
@@ -182,6 +185,21 @@ public class WeatherAppBackEnd {
         return 0;
     }
 
+    private static int findIndexofTomorrow(JSONArray timeList){
+        String currentTime = getTomorrowTime();
+
+        // iterate through the time list and see which one matches our current time
+        for(int i = 0; i < timeList.size(); i++){
+            String time = (String) timeList.get(i);
+            if(time.equalsIgnoreCase(currentTime)){
+                // return the index
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
     private static String getCurrentTime(){
         // get current date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -192,6 +210,13 @@ public class WeatherAppBackEnd {
         // format and print the current date and time
         String formattedDateTime = currentDateTime.format(formatter);
 
+        return formattedDateTime;
+    }
+
+    private static  String getTomorrowTime(){
+        LocalDateTime currentDateTime = LocalDateTime.now().plusDays(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH':00'");
+        String formattedDateTime = currentDateTime.format(formatter);
         return formattedDateTime;
     }
 

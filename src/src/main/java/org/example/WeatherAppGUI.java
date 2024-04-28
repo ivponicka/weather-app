@@ -18,7 +18,7 @@ public class WeatherAppGUI extends JFrame {
     private JSONObject weatherData;
     public WeatherAppGUI(){
         super("Weather App");
-        setSize(450,480);
+        setSize(450,550);
         setLocationRelativeTo(null);
         setLayout(null);
         setResizable(false);
@@ -54,59 +54,139 @@ public class WeatherAppGUI extends JFrame {
         });
 
 
+        // search field
         JTextField searchField = new JTextField();
-        searchField.setBounds(20,70,355,45);
-        searchField.setFont(new Font("Dialog", Font.PLAIN, 26));
+        searchField.setBounds(20,80,355,35);
+        searchField.setFont(new Font("Monospace", Font.PLAIN, 24));
             add(searchField);
 
 
-
+        // main weather image (today)
         JLabel weatherImage = new JLabel(loadImage("src/src/main/resources/images/cloudy.png"));
         weatherImage.setBounds(100, 115, 250, 200);
         add(weatherImage);
 
+        // temperature
         JLabel weatherTemperature = new JLabel("10C");
         weatherTemperature.setBounds(195, 260, 150,50);
-        weatherTemperature.setFont(new Font("Dialog", Font.BOLD, 28));
+        weatherTemperature.setFont(new Font("Monospace", Font.BOLD, 28));
         add(weatherTemperature);
 
+        // weather description
         JLabel weatherConditionDesc = new JLabel("Cloudy");
         weatherConditionDesc.setBounds(185, 290, 150,50);
-        weatherConditionDesc.setFont(new Font("Dialog", Font.ITALIC, 22));
+        weatherConditionDesc.setFont(new Font("Monospace", Font.ITALIC, 22));
         appName2.setForeground(new Color(29, 44, 97));
         add(weatherConditionDesc);
 
+        // humidity
         JLabel humidityImage = new JLabel(loadImage("src/src/main/resources/images/humidity2.png"));
-        humidityImage.setBounds(10, 374, 50,50);
+        humidityImage.setBounds(40, 184, 50,50);
         add(humidityImage);
 
         JLabel humidityText = new JLabel("Humidity");
-        humidityText.setBounds(70, 360, 90,50);
-        humidityText.setFont(new Font("Dialog", Font.BOLD, 14));
+        humidityText.setBounds(36, 225, 90,50);
+        humidityText.setFont(new Font("Monospace", Font.BOLD, 14));
         add(humidityText);
 
         JLabel humidityPercent = new JLabel("100%");
-        humidityPercent.setBounds(70, 380, 50,50);
-        humidityPercent.setFont(new Font("Dialog", Font.BOLD, 14));
+        humidityPercent.setBounds(43, 250, 50,50);
+        humidityPercent.setFont(new Font("Monospace", Font.BOLD, 14));
         add(humidityPercent);
 
+        // wind
         JLabel windImage = new JLabel(loadImage("src/src/main/resources/images/wind.png"));
-        windImage.setBounds(290, 364, 50,50);
+        windImage.setBounds(350, 184, 50,50);
         add(windImage);
 
         JLabel windText = new JLabel("Wind");
-        windText.setBounds(350, 360, 90,50);
-        windText.setFont(new Font("Dialog", Font.BOLD, 14));
+        windText.setBounds(350, 225, 90,50);
+        windText.setFont(new Font("Monospace", Font.BOLD, 14));
         add(windText);
 
         JLabel windPercent = new JLabel("100km/h");
-        windPercent.setBounds(350, 380, 90,50);
-        windPercent.setFont(new Font("Dialog", Font.BOLD, 14));
+        windPercent.setBounds(350, 250, 90,50);
+        windPercent.setFont(new Font("Monospace", Font.BOLD, 14));
         add(windPercent);
+
+
+        // tomorrow
+        JLabel tomorrowText = new JLabel("Tomorrow");
+        tomorrowText.setBounds(40, 360, 90,50);
+        tomorrowText.setFont(new Font("Monospace", Font.BOLD, 14));
+        add(tomorrowText);
+
+        // tomorrow weather image (today)
+        JLabel weatherImageTomorrow = new JLabel(loadImage("src/src/main/resources/images/clearsmall.png"));
+        weatherImageTomorrow.setBounds(33, 400, 90,50);
+        add(weatherImageTomorrow);
+
+        // tomorrow temperature
+        JLabel weatherTemperatureTomorrow = new JLabel("10C");
+        weatherTemperatureTomorrow.setBounds(58, 435, 90,50);
+        weatherTemperatureTomorrow.setFont(new Font("Dialog", Font.BOLD, 18));
+        add(weatherTemperatureTomorrow);
+
+        // tomorrow weather description
+        JLabel weatherConditionDescTomorrow = new JLabel("Cloudy");
+        weatherConditionDescTomorrow.setBounds(50, 455, 90,50);
+        weatherConditionDescTomorrow.setFont(new Font("Dialog", Font.ITALIC, 14));
+        weatherConditionDescTomorrow.setForeground(new Color(29, 44, 97));
+        add(weatherConditionDescTomorrow);
+
+        // tomorrow + 1 day
+        JLabel tomorrowText1 = new JLabel("Next day");
+        tomorrowText1.setBounds(190, 360, 90,50);
+        tomorrowText1.setFont(new Font("Monospace", Font.BOLD, 14));
+        add(tomorrowText1);
+
+        // tomorrow weather image (today) + 1 day
+        JLabel weatherImageTomorrow1 = new JLabel(loadImage("src/src/main/resources/images/clearsmall.png"));
+        weatherImageTomorrow1.setBounds(183, 400, 90,50);
+        add(weatherImageTomorrow1);
+
+        // tomorrow temperature + 1 day
+        JLabel weatherTemperatureTomorrow1 = new JLabel("10C");
+        weatherTemperatureTomorrow1.setBounds(208, 435, 90,50);
+        weatherTemperatureTomorrow1.setFont(new Font("Dialog", Font.BOLD, 18));
+        add(weatherTemperatureTomorrow1);
+
+        // tomorrow weather description + 1 day
+        JLabel weatherConditionDescTomorrow1 = new JLabel("Cloudy");
+        weatherConditionDescTomorrow1.setBounds(200, 455, 90,50);
+        weatherConditionDescTomorrow1.setFont(new Font("Dialog", Font.ITALIC, 14));
+        weatherConditionDescTomorrow1.setForeground(new Color(29, 44, 97));
+        add(weatherConditionDescTomorrow1);
+
+        // tomorrow + 2 days
+        JLabel tomorrowText2 = new JLabel("Next day +1");
+        tomorrowText2.setBounds(340, 360, 90,50);
+        tomorrowText2.setFont(new Font("Monospace", Font.BOLD, 14));
+        add(tomorrowText2);
+
+        // tomorrow weather image (today) + 2 days
+        JLabel weatherImageTomorrow2 = new JLabel(loadImage("src/src/main/resources/images/clearsmall.png"));
+        weatherImageTomorrow2.setBounds(333, 400, 90,50);
+        add(weatherImageTomorrow2);
+
+        // tomorrow temperature + 2 days
+        JLabel weatherTemperatureTomorrow2 = new JLabel("10C");
+        weatherTemperatureTomorrow2.setBounds(358, 435, 90,50);
+        weatherTemperatureTomorrow2.setFont(new Font("Dialog", Font.BOLD, 18));
+        add(weatherTemperatureTomorrow2);
+
+        // tomorrow weather description + 2 days
+        JLabel weatherConditionDescTomorrow2 = new JLabel("Cloudy");
+        weatherConditionDescTomorrow2.setBounds(350, 455, 90,50);
+        weatherConditionDescTomorrow2.setFont(new Font("Dialog", Font.ITALIC, 14));
+        weatherConditionDescTomorrow2.setForeground(new Color(29, 44, 97));
+        add(weatherConditionDescTomorrow2);
+
+        // search button
 
         JButton searchButton = new JButton(loadImage("src/src/main/resources/images/search2.png"));
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        searchButton.setBounds(380, 71, 45, 43);
+        searchButton.setBounds(380, 81, 45, 33);
         searchButton.setBackground(new Color(147, 165, 186));
 
         searchButton.addActionListener(new ActionListener() {
@@ -153,8 +233,11 @@ public class WeatherAppGUI extends JFrame {
 
                 double weatherTemp = (double) weatherData.get("temperature");
                 weatherTemperature.setText(weatherTemp + "C");
-
                 weatherConditionDesc.setText(weatherCondition);
+
+                double weatherTempTomorrow = (double) weatherData.get("temperature_tomorrow");
+
+                weatherTemperatureTomorrow.setText(weatherTempTomorrow + "C");
 
                 long humidity = (long) weatherData.get("humidity");
                 humidityText.setText(humidity + "%</html>");
