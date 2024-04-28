@@ -65,15 +65,24 @@ public class WeatherAppBackEnd {
             JSONArray time = (JSONArray) hourly.get("time");
             int index = findIndexOfCurrentTime(time);
 
+            // time - the next 3 days
             int indexOfTomorrow = findIndexofTomorrow(time);
+            int indexOf2ndDay = findIndexof2ndDay(time);
+            int indexOf3rdDay = findIndexOf3rdDay(time);
+
             // get temperature
             JSONArray temperatureData = (JSONArray) hourly.get("temperature_2m");
             double temperature = (double) temperatureData.get(index);
             double temperatureTomorrow = (double) temperatureData.get(indexOfTomorrow);
+            double temperature2ndDay = (double) temperatureData.get(indexOf2ndDay);
+            double temperature3rdDay = (double) temperatureData.get(indexOf3rdDay);
 
             // get weather code
             JSONArray weathercode = (JSONArray) hourly.get("weathercode");
             String weatherCondition = convertWeatherCode((long) weathercode.get(index));
+            String weatherConditionTomorrow = convertWeatherCode((long) weathercode.get(indexOfTomorrow));
+            String weatherConditionSecondDay = convertWeatherCode((long) weathercode.get(indexOf2ndDay));
+            String weatherConditionThirdDay = convertWeatherCode((long) weathercode.get(indexOf3rdDay));
 
             // get humidity
             JSONArray relativeHumidity = (JSONArray) hourly.get("relativehumidity_2m");
@@ -90,6 +99,12 @@ public class WeatherAppBackEnd {
             weatherData.put("humidity", humidity);
             weatherData.put("windspeed", windspeed);
             weatherData.put("temperature_tomorrow", temperatureTomorrow);
+            weatherData.put("temperature_2nd_day", temperature2ndDay);
+            weatherData.put("temperature_3rd_day", temperature3rdDay);
+            weatherData.put("weather_condition_tomorrow", weatherConditionTomorrow);
+            weatherData.put("weather_condition_second_day", weatherConditionSecondDay);
+            weatherData.put("weather_condition_third_day", weatherConditionThirdDay);
+
 
             return weatherData;
         }catch(Exception e){
@@ -200,6 +215,35 @@ public class WeatherAppBackEnd {
         return 0;
     }
 
+    private static int findIndexof2ndDay(JSONArray timeList){
+        String currentTime = getSecondDayTime();
+
+        // iterate through the time list and see which one matches our current time
+        for(int i = 0; i < timeList.size(); i++){
+            String time = (String) timeList.get(i);
+            if(time.equalsIgnoreCase(currentTime)){
+                // return the index
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    private static int findIndexOf3rdDay(JSONArray timeList){
+        String currentTime = getThirdDayTime();
+
+        // iterate through the time list and see which one matches our current time
+        for(int i = 0; i < timeList.size(); i++){
+            String time = (String) timeList.get(i);
+            if(time.equalsIgnoreCase(currentTime)){
+                // return the index
+                return i;
+            }
+        }
+
+        return 0;
+    }
     private static String getCurrentTime(){
         // get current date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -220,6 +264,19 @@ public class WeatherAppBackEnd {
         return formattedDateTime;
     }
 
+    private static  String getSecondDayTime(){
+        LocalDateTime currentDateTime = LocalDateTime.now().plusDays(2);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH':00'");
+        String formattedDateTime = currentDateTime.format(formatter);
+        return formattedDateTime;
+    }
+
+    private static  String getThirdDayTime(){
+        LocalDateTime currentDateTime = LocalDateTime.now().plusDays(3);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH':00'");
+        String formattedDateTime = currentDateTime.format(formatter);
+        return formattedDateTime;
+    }
     // convert the weather code to something more readable
     private static String convertWeatherCode(long weathercode){
         String weatherCondition = "";

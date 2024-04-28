@@ -56,25 +56,25 @@ public class WeatherAppGUI extends JFrame {
 
         // search field
         JTextField searchField = new JTextField();
-        searchField.setBounds(20,80,355,35);
-        searchField.setFont(new Font("Monospace", Font.PLAIN, 24));
+        searchField.setBounds(20,85,355,30);
+        searchField.setFont(new Font("Monospace", Font.PLAIN, 22));
             add(searchField);
 
 
         // main weather image (today)
-        JLabel weatherImage = new JLabel(loadImage("src/src/main/resources/images/cloudy.png"));
-        weatherImage.setBounds(100, 115, 250, 200);
+        JLabel weatherImage = new JLabel(loadImage("src/src/main/resources/images/clear.png"));
+        weatherImage.setBounds(100, 125, 250, 200);
         add(weatherImage);
 
         // temperature
         JLabel weatherTemperature = new JLabel("10C");
-        weatherTemperature.setBounds(195, 260, 150,50);
+        weatherTemperature.setBounds(195, 295, 150,50);
         weatherTemperature.setFont(new Font("Monospace", Font.BOLD, 28));
         add(weatherTemperature);
 
         // weather description
         JLabel weatherConditionDesc = new JLabel("Cloudy");
-        weatherConditionDesc.setBounds(185, 290, 150,50);
+        weatherConditionDesc.setBounds(185, 320, 150,50);
         weatherConditionDesc.setFont(new Font("Monospace", Font.ITALIC, 22));
         appName2.setForeground(new Color(29, 44, 97));
         add(weatherConditionDesc);
@@ -112,81 +112,81 @@ public class WeatherAppGUI extends JFrame {
 
         // tomorrow
         JLabel tomorrowText = new JLabel("Tomorrow");
-        tomorrowText.setBounds(40, 360, 90,50);
+        tomorrowText.setBounds(40, 380, 90,50);
         tomorrowText.setFont(new Font("Monospace", Font.BOLD, 14));
         add(tomorrowText);
 
         // tomorrow weather image (today)
         JLabel weatherImageTomorrow = new JLabel(loadImage("src/src/main/resources/images/clearsmall.png"));
-        weatherImageTomorrow.setBounds(33, 400, 90,50);
+        weatherImageTomorrow.setBounds(33, 420, 90,50);
         add(weatherImageTomorrow);
 
         // tomorrow temperature
         JLabel weatherTemperatureTomorrow = new JLabel("10C");
-        weatherTemperatureTomorrow.setBounds(58, 435, 90,50);
+        weatherTemperatureTomorrow.setBounds(58, 455, 90,50);
         weatherTemperatureTomorrow.setFont(new Font("Dialog", Font.BOLD, 18));
         add(weatherTemperatureTomorrow);
 
         // tomorrow weather description
         JLabel weatherConditionDescTomorrow = new JLabel("Cloudy");
-        weatherConditionDescTomorrow.setBounds(50, 455, 90,50);
+        weatherConditionDescTomorrow.setBounds(50, 475, 90,50);
         weatherConditionDescTomorrow.setFont(new Font("Dialog", Font.ITALIC, 14));
         weatherConditionDescTomorrow.setForeground(new Color(29, 44, 97));
         add(weatherConditionDescTomorrow);
 
-        // tomorrow + 1 day
-        JLabel tomorrowText1 = new JLabel("Next day");
-        tomorrowText1.setBounds(190, 360, 90,50);
-        tomorrowText1.setFont(new Font("Monospace", Font.BOLD, 14));
-        add(tomorrowText1);
+        // label second day
+        JLabel secondDayText = new JLabel("Next day");
+        secondDayText.setBounds(190, 380, 90,50);
+        secondDayText.setFont(new Font("Monospace", Font.BOLD, 14));
+        add(secondDayText);
 
-        // tomorrow weather image (today) + 1 day
-        JLabel weatherImageTomorrow1 = new JLabel(loadImage("src/src/main/resources/images/clearsmall.png"));
-        weatherImageTomorrow1.setBounds(183, 400, 90,50);
-        add(weatherImageTomorrow1);
+        // second day weather image
+        JLabel weatherImageSecondDay = new JLabel(loadImage("src/src/main/resources/images/clearsmall.png"));
+        weatherImageSecondDay.setBounds(174, 420, 90,50);
+        add(weatherImageSecondDay);
 
-        // tomorrow temperature + 1 day
-        JLabel weatherTemperatureTomorrow1 = new JLabel("10C");
-        weatherTemperatureTomorrow1.setBounds(208, 435, 90,50);
-        weatherTemperatureTomorrow1.setFont(new Font("Dialog", Font.BOLD, 18));
-        add(weatherTemperatureTomorrow1);
+        // second day temperature
+        JLabel weatherTemperatureSecondDay = new JLabel("10C");
+        weatherTemperatureSecondDay.setBounds(208, 455, 90,50);
+        weatherTemperatureSecondDay.setFont(new Font("Dialog", Font.BOLD, 18));
+        add(weatherTemperatureSecondDay);
 
-        // tomorrow weather description + 1 day
-        JLabel weatherConditionDescTomorrow1 = new JLabel("Cloudy");
-        weatherConditionDescTomorrow1.setBounds(200, 455, 90,50);
-        weatherConditionDescTomorrow1.setFont(new Font("Dialog", Font.ITALIC, 14));
-        weatherConditionDescTomorrow1.setForeground(new Color(29, 44, 97));
-        add(weatherConditionDescTomorrow1);
+        // second day weather description
+        JLabel weatherConditionDescSecondDay = new JLabel("Cloudy");
+        weatherConditionDescSecondDay.setBounds(200, 475, 90,50);
+        weatherConditionDescSecondDay.setFont(new Font("Dialog", Font.ITALIC, 14));
+        weatherConditionDescSecondDay.setForeground(new Color(29, 44, 97));
+        add(weatherConditionDescSecondDay);
 
-        // tomorrow + 2 days
-        JLabel tomorrowText2 = new JLabel("Next day +1");
-        tomorrowText2.setBounds(340, 360, 90,50);
-        tomorrowText2.setFont(new Font("Monospace", Font.BOLD, 14));
-        add(tomorrowText2);
+        // third day
+        JLabel thirdDayText = new JLabel("Next day +1");
+        thirdDayText.setBounds(335, 380, 90,50);
+        thirdDayText.setFont(new Font("Monospace", Font.BOLD, 14));
+        add(thirdDayText);
 
-        // tomorrow weather image (today) + 2 days
-        JLabel weatherImageTomorrow2 = new JLabel(loadImage("src/src/main/resources/images/clearsmall.png"));
-        weatherImageTomorrow2.setBounds(333, 400, 90,50);
-        add(weatherImageTomorrow2);
+        // third day weather image
+        JLabel weatherImageThirdDay = new JLabel(loadImage("src/src/main/resources/images/clearsmall.png"));
+        weatherImageThirdDay.setBounds(330, 420, 90,50);
+        add(weatherImageThirdDay);
 
-        // tomorrow temperature + 2 days
-        JLabel weatherTemperatureTomorrow2 = new JLabel("10C");
-        weatherTemperatureTomorrow2.setBounds(358, 435, 90,50);
-        weatherTemperatureTomorrow2.setFont(new Font("Dialog", Font.BOLD, 18));
-        add(weatherTemperatureTomorrow2);
+        // third day temperature
+        JLabel weatherTemperatureThirdDay = new JLabel("10C");
+        weatherTemperatureThirdDay.setBounds(355, 455, 90,50);
+        weatherTemperatureThirdDay.setFont(new Font("Dialog", Font.BOLD, 18));
+        add(weatherTemperatureThirdDay);
 
-        // tomorrow weather description + 2 days
-        JLabel weatherConditionDescTomorrow2 = new JLabel("Cloudy");
-        weatherConditionDescTomorrow2.setBounds(350, 455, 90,50);
-        weatherConditionDescTomorrow2.setFont(new Font("Dialog", Font.ITALIC, 14));
-        weatherConditionDescTomorrow2.setForeground(new Color(29, 44, 97));
-        add(weatherConditionDescTomorrow2);
+        // third day weather description
+        JLabel weatherConditionDescThirdDay = new JLabel("Cloudy");
+        weatherConditionDescThirdDay.setBounds(350, 475, 90,50);
+        weatherConditionDescThirdDay.setFont(new Font("Dialog", Font.ITALIC, 14));
+        weatherConditionDescThirdDay.setForeground(new Color(29, 44, 97));
+        add(weatherConditionDescThirdDay);
 
         // search button
 
         JButton searchButton = new JButton(loadImage("src/src/main/resources/images/search2.png"));
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        searchButton.setBounds(380, 81, 45, 33);
+        searchButton.setBounds(380, 85, 40, 28);
         searchButton.setBackground(new Color(147, 165, 186));
 
         searchButton.addActionListener(new ActionListener() {
@@ -208,8 +208,11 @@ public class WeatherAppGUI extends JFrame {
 
                     // update weather image
                     String weatherCondition = (String) weatherData.get("weather_condition");
+                    String weatherConditionTomorrow = (String) weatherData.get("weather_condition_tomorrow");
+                    String weatherConditionSecondDay = (String) weatherData.get("weather_condition_second_day");
+                    String weatherConditionThirdDay = (String) weatherData.get("weather_condition_third_day");
 
-                    switch (weatherCondition){
+                switch (weatherCondition){
                     case "Clear":
                         weatherImage.setIcon(loadImage("src/src/main/resources/images/clear.png"));
                         break;
@@ -231,13 +234,87 @@ public class WeatherAppGUI extends JFrame {
 
                 }
 
+                switch (weatherConditionTomorrow){
+                    case "Clear":
+                        weatherImageTomorrow.setIcon(loadImage("src/src/main/resources/images/clearsmall.png"));
+                        break;
+                    case "Cloudy":
+                        weatherImageTomorrow.setIcon(loadImage("src/src/main/resources/images/cloudysmall.png"));
+                        break;
+                    case "Rain":
+                        weatherImageTomorrow.setIcon(loadImage("src/src/main/resources/images/rainsmall.png"));
+                        break;
+                    case "Snow":
+                        weatherImageTomorrow.setIcon(loadImage("src/src/main/resources/images/snowsmall.png"));
+                        break;
+                    case "Stormy":
+                        weatherImageTomorrow.setIcon(loadImage("src/src/main/resources/images/stormysmall.png"));
+                        break;
+                    case "Drizzle":
+                        weatherImageTomorrow.setIcon(loadImage("src/src/main/resources/images/drizzlesmall.png"));
+                        break;
+
+                }
+
+                switch (weatherConditionSecondDay){
+                    case "Clear":
+                        weatherImageSecondDay.setIcon(loadImage("src/src/main/resources/images/clearsmall.png"));
+                        break;
+                    case "Cloudy":
+                        weatherImageSecondDay.setIcon(loadImage("src/src/main/resources/images/cloudysmall.png"));
+                        break;
+                    case "Rain":
+                        weatherImageSecondDay.setIcon(loadImage("src/src/main/resources/images/rainsmall.png"));
+                        break;
+                    case "Snow":
+                        weatherImageSecondDay.setIcon(loadImage("src/src/main/resources/images/snowsmall.png"));
+                        break;
+                    case "Stormy":
+                        weatherImageSecondDay.setIcon(loadImage("src/src/main/resources/images/stormysmall.png"));
+                        break;
+                    case "Drizzle":
+                        weatherImageSecondDay.setIcon(loadImage("src/src/main/resources/images/drizzlesmall.png"));
+                        break;
+
+                }
+
+                switch (weatherConditionThirdDay){
+                    case "Clear":
+                        weatherImageThirdDay.setIcon(loadImage("src/src/main/resources/images/clearsmall.png"));
+                        break;
+                    case "Cloudy":
+                        weatherImageThirdDay.setIcon(loadImage("src/src/main/resources/images/cloudysmall.png"));
+                        break;
+                    case "Rain":
+                        weatherImageThirdDay.setIcon(loadImage("src/src/main/resources/images/rainsmall.png"));
+                        break;
+                    case "Snow":
+                        weatherImageThirdDay.setIcon(loadImage("src/src/main/resources/images/snowsmall.png"));
+                        break;
+                    case "Stormy":
+                        weatherImageThirdDay.setIcon(loadImage("src/src/main/resources/images/stormysmall.png"));
+                        break;
+                    case "Drizzle":
+                        weatherImageThirdDay.setIcon(loadImage("src/src/main/resources/images/drizzlesmall.png"));
+                        break;
+
+                }
+
                 double weatherTemp = (double) weatherData.get("temperature");
                 weatherTemperature.setText(weatherTemp + "C");
                 weatherConditionDesc.setText(weatherCondition);
 
                 double weatherTempTomorrow = (double) weatherData.get("temperature_tomorrow");
-
                 weatherTemperatureTomorrow.setText(weatherTempTomorrow + "C");
+                weatherConditionDescTomorrow.setText(weatherConditionTomorrow);
+
+                double weatherTemp2ndDay = (double) weatherData.get("temperature_2nd_day");
+                weatherConditionDescSecondDay.setText(weatherConditionSecondDay);
+
+                double weatherTemp3rdDay = (double) weatherData.get("temperature_3rd_day");
+                weatherConditionDescThirdDay.setText(weatherConditionThirdDay);
+
+
 
                 long humidity = (long) weatherData.get("humidity");
                 humidityText.setText(humidity + "%</html>");
